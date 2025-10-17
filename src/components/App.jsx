@@ -1,16 +1,15 @@
+import { useEffect, lazy } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { RestrictedRoute } from './restrictedRoute';
+const Login = lazy(() => import('Pages/Login'));
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Routes>
+      <Route
+        path="/login"
+        element={<RestrictedRoute redirectTo="/" component={<Login />} />}
+      />
+    </Routes>
   );
 };
